@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import './Pages/App.css';
 import ListEmployee from './Pages/ListEmployee';
+import AddEmployee from './Pages/AddEmployee';
 
 function App() {
   return (
     <div className="container">
-      <ListEmployee/>
+      {/* <ListEmployee/> */}
+      <AddEmployee/>
       
     </div>
   );
