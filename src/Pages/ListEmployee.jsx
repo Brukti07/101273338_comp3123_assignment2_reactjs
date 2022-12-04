@@ -9,6 +9,7 @@ class ListEmployee extends Component {
             employees: []
 
         }
+        this.addEmployee = this.addEmployee.bind(this);
     }
    
 
@@ -20,10 +21,19 @@ class ListEmployee extends Component {
     // getEmployee = () =>{
     //     return axios.get(this.EMPLOYEE_API_BASE_URL);
     // }
+
+    addEmployee(){
+        this.props.history.push('/add-employee');
+    }
+
+    
     render() {
         return (
             <div>
                 <h2 className="text-center"> Employee List </h2>
+                <div className='row'>
+                    <button className='btn btn-primary' onClick={this.addEmployee}>Add Employee</button>
+                </div>
                 <div className='row'>
                     <table className='table table-striped table-bordered'>
                         <thead>
