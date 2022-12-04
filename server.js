@@ -7,7 +7,8 @@ const mongoose = require("mongoose")
 
 const app = express();
 
-const SERVER_PORT = 3001
+// const SERVER_PORT = 3001
+// const CLIENT_PORT = 3000
 
 app.use(express.json())
 app.use(express.urlencoded())
@@ -42,7 +43,10 @@ app.route("/")
     })
 
 
-app.listen(SERVER_PORT, () => {
-    console.log(`Server running at http://localhost:${SERVER_PORT}/`)
-});
+// app.listen(SERVER_PORT, () => {
+//     console.log(`Server running at http://localhost:${SERVER_PORT}/`)
+// });
+// app.listen(SERVER_PORT, () => {
+//     console.log(`Server running at http://localhost:${CLIENT_PORT}/`)
+// });
 

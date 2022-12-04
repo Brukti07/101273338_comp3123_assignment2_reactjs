@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import EServer from '../routes/EServer'
 
 class ListEmployee extends Component {
     constructor(props){
@@ -9,6 +10,16 @@ class ListEmployee extends Component {
 
         }
     }
+   
+
+    componentDidMount =() =>{
+        EServer.getEmployee().then((res) => {
+            this.setState({employee:res.data});
+        })
+    }
+    // getEmployee = () =>{
+    //     return axios.get(this.EMPLOYEE_API_BASE_URL);
+    // }
     render() {
         return (
             <div>
@@ -23,19 +34,18 @@ class ListEmployee extends Component {
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        {/* <tbody>
-                            {
+                        <tbody>
+                            {/* {
                                 this.state.employees.map(
                                     employees =>
                                     <tr key ={employee.id}>
-                                        <td>{ employee.firstName}</td>
-                                        <td>{ employee.lastName}</td>
-                                        <td>{ employee.emailid}</td>
-
+                                        <td>{ employee.first_name}</td>
+                                        <td>{ employee.last_name}</td>
+                                        <td>{ employee.email_id}</td>
                                     </tr>
-                                )
-                            }
-                        </tbody> */}
+                                    )
+                            } */}
+                        </tbody>
 
                     </table>
                 </div>

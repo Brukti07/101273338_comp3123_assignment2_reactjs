@@ -26,7 +26,7 @@ routes.post("/employee",async (req, res) =>{
         res.status(500).send({message: "Error while inserting"})
     }
 })
-//DELETE Employee
+//sort Employee
 routes.get("/employee/sort",(req, res) =>{
     
 })
