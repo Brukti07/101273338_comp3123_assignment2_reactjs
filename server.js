@@ -21,7 +21,7 @@ mongoose.connect("mongodb+srv://Bruktawit:Song%3ADv7@cluster0.kyeqpin.mongodb.ne
 
 app.use("/addEmployee", addRoutes)
 
-app.use("/employee", employeeRoutes)
+app.use("/api/v1/", employeeRoutes)
 
 app.route("/")
     .get((req, res)=>{

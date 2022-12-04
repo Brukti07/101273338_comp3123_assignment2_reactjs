@@ -17,7 +17,6 @@ routes.get("/employee",async (req, res) =>{
 })
 //Add New Employee
 routes.post("/employee",async (req, res) =>{
-    // res.send({message: "save Employee"})
     const newEmploye = new EmployeeModel(req.body)
 
     try{
