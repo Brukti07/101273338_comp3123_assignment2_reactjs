@@ -1,4 +1,5 @@
 const express = require("express")
+const employee = require("../models/employee")
 const EmployeeModel = require("../models/employee")
 
 const routes =express.Router()
@@ -6,7 +7,6 @@ const routes =express.Router()
 
 //Get ALL Employee
 routes.get("/employee",async (req, res) =>{
-    // res.send({message: "Get Employee"})
     try{
         const employee = await EmployeeModel.find()
         res.status(200).send(employee)
@@ -27,17 +27,17 @@ routes.post("/employee",async (req, res) =>{
     }
 })
 //DELETE Employee
-routes.delete("/employee",(req, res) =>{
-    res.send({message: "delete Employee"})
+routes.get("/employee/sort",(req, res) =>{
+    
 })
 //UPDATE existing BOOK By ID
 routes.patch ("/employee/:employeeid", async (req, res) =>{
     // res.send({message: "Updadate exisiting employee By Id"})
     try{
-        const employee = req.body
-        await EmployeeModel.findByIdAndUpdate(req.params.employeeid, employee)
-        await EmployeeModel.save()
-        res.status(202).send(employee)
+        console.log(req.body)
+        const updatedEmployee = await EmployeeModel.findByIdAndUpdate(req.params.employeeid, employee)
+        const nb = await updatedEmployee.save()
+        res.status(202).send(nb)
     } catch (err){
         res.status(500).send(err)
     }
@@ -45,8 +45,17 @@ routes.patch ("/employee/:employeeid", async (req, res) =>{
 })
 
 
-routes.get("/employee/sort",(req, res) =>{
-    res.send({message: "get all Employee in sorted order"})
+routes.delete("/employee/:employeeid", async(req, res) =>{
+    try{
+        const employee = await EmployeeModel.findByIdAndDelete(req.params.id)
+        if(!employee){
+            res.status(404).send("No item found")
+        }
+        res.status(200).send(employee)
+
+    } catch(err){
+        res.status(500).send(err)
+    }
 })
 
 module.exports = routes
