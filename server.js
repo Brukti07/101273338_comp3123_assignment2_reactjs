@@ -1,13 +1,13 @@
 const express =require("express")
-const addRoutes = require("./routes/add")
-const employeeRoutes = require("./routes/employee")
+const addRoutes = require("./src/routes/add")
+const employeeRoutes = require("./src/routes/employee")
 const mongoose = require("mongoose")
-const EmployeeModel = require("./models/Employee")
+const employeeModel = require("./src/models/employee")
 
 
 const app = express();
 
-// const SERVER_PORT = 3001
+const SERVER_PORT = 3001
 // const CLIENT_PORT = 3000
 
 app.use(express.json())

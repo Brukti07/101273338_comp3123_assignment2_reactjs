@@ -10,12 +10,17 @@ class ListEmployee extends Component {
 
         }
         this.addEmployee = this.addEmployee.bind(this);
+        this.editEmployee = this.editEmployee.bind(this);
+    }
+
+    editEmployee(id){
+        this.props.history.push(`/update-employee/${id}`);
     }
    
 
     componentDidMount =() =>{
         EServer.getEmployee().then((res) => {
-            this.setState({employee:res.data});
+            this.setState({employees: res.data});
         })
     }
     // getEmployee = () =>{
@@ -34,6 +39,7 @@ class ListEmployee extends Component {
                 <div className='row'>
                     
                     <button className='btn btn-primary' onClick={this.addEmployee}>Add Employee</button>
+
                 </div>
                 <div className='row'>
                     <table className='table table-striped table-bordered'>
@@ -46,6 +52,22 @@ class ListEmployee extends Component {
                             </tr>
                         </thead>
                         <tbody>
+                            <tr>
+                                <td>Bruktawit</td>
+                                <td>Adugna</td>
+                                 <td>bruktawit.adugn@georgebrown.com</td>
+                                <td>
+                                   <button onClick={this.editEmployee} className="btn btn-info">Update</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lala</td>
+                                <td>Adem</td>
+                                 <td>lala0945@georgebrown.com</td>
+                                 <td>
+                                   <button onClick={this.editEmployee} className="btn btn-info">Update</button>
+                                </td>
+                            </tr>
                             {
                                 this.state.employees.map(
                                     employee =>
@@ -54,7 +76,7 @@ class ListEmployee extends Component {
                                         <td>{ employee.lastName}</td>
                                         <td>{ employee.emailId}</td>
                                         <td>
-                                            <button onClick={() =>this.editEmployee(employee.id)} class="btn btn-light">Update</button>
+                                            <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
                                         </td>
                                         
                                     </tr>
