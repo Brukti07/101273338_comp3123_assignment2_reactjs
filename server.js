@@ -2,7 +2,7 @@ const express =require("express")
 const addRoutes = require("./routes/add")
 const employeeRoutes = require("./routes/employee")
 const mongoose = require("mongoose")
-// const EmployeeModel = require("./models/Employee")
+const EmployeeModel = require("./models/Employee")
 
 
 const app = express();
@@ -43,9 +43,9 @@ app.route("/")
     })
 
 
-// app.listen(SERVER_PORT, () => {
-//     console.log(`Server running at http://localhost:${SERVER_PORT}/`)
-// });
+app.listen(SERVER_PORT, () => {
+    console.log(`Server running at http://localhost:${SERVER_PORT}/`)
+});
 // app.listen(SERVER_PORT, () => {
 //     console.log(`Server running at http://localhost:${CLIENT_PORT}/`)
 // });

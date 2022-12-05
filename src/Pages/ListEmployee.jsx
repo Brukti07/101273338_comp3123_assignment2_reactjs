@@ -46,16 +46,20 @@ class ListEmployee extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            {/* {
+                            {
                                 this.state.employees.map(
-                                    employees =>
+                                    employee =>
                                     <tr key ={employee.id}>
-                                        <td>{ employee.first_name}</td>
-                                        <td>{ employee.last_name}</td>
-                                        <td>{ employee.email_id}</td>
+                                        <td>{ employee.firstName}</td>
+                                        <td>{ employee.lastName}</td>
+                                        <td>{ employee.emailId}</td>
+                                        <td>
+                                            <button onClick={() =>this.editEmployee(employee.id)} class="btn btn-light">Update</button>
+                                        </td>
+                                        
                                     </tr>
                                     )
-                            } */}
+                            }
                         </tbody>
 
                     </table>

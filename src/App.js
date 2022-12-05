@@ -1,8 +1,8 @@
 import './App.css';
 import ListEmployee from './Pages/ListEmployee';
 import CreateEmployee from './Pages/CreateEmployee';
-// import AddEmployee from './AddEmployee';
 import {BrowserRouter as Router, Route, Switch}from'react-router-dom'
+import UpdateEmployee from './Pages/UpdateEmployee';
 
 function App() {
   return (
@@ -13,11 +13,10 @@ function App() {
         <div className="container">
           <Switch> http://localhost:3000/add-employee
               <Route path = "/" exact component={ListEmployee}></Route>
-              {/* <Route path = "/AddEmployee" component={AddEmployee}></Route> */}
+              <Route path = "/employee" exact component={ListEmployee}></Route>
               <Route path = "/add-employee" component={CreateEmployee}></Route>
-              {/* <ListEmployee/> */}
-          {/* <AddEmployee/> */}
-            
+              <Route path = "/update-employee/:id" component={UpdateEmployee}></Route>
+                          
           </Switch>
           
           </div>

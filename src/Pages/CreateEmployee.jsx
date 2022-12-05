@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EServer from '../routes/EServer';
 
 class CreateEmployee extends Component {
     constructor(props){
@@ -18,6 +19,11 @@ class CreateEmployee extends Component {
         e.preventDefault();
         let employee = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId};
         console.log('employee =>' +JSON.stringify(employee));
+
+        EServer.createEmployee(employee).then(res => {
+            this.props.history.push('/')
+
+        });
     }
 
     changeFirstNameHandler=(event) =>{
@@ -66,7 +72,7 @@ class CreateEmployee extends Component {
                                     </div>
                                     <button type="button" class="btn btn-success" onClick={this.saveEmployee}> Save </button>
                                     <button type="button" class="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
-                                    {/* vd 14 08:60 */}
+                                  
 
 
                                 
