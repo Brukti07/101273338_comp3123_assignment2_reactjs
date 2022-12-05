@@ -32,6 +32,7 @@ class ListEmployee extends Component {
             <div>
                 <h2 className="text-center"> Employee List </h2>
                 <div className='row'>
+                    
                     <button className='btn btn-primary' onClick={this.addEmployee}>Add Employee</button>
                 </div>
                 <div className='row'>
